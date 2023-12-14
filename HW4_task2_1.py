@@ -33,7 +33,7 @@ def callback(data):
     elif step == 1:
         vel_msg.angular.z = 0
         if data.z == 1.0:
-            if data > 0.25:
+            if data.y > 0.25:
                 vel_msg.linear.x = 0.1
             else:
                 vel_msg.linear.x = 0
@@ -55,7 +55,7 @@ def callback(data):
     elif step == 3:
         if data.z == 20 or data.z == 10:
             vel_msg.angular.z = 0
-            if data > 0.25:
+            if data.y > 0.25:
                 vel_msg.linear.x = 0.1
             else:
                 vel_msg.linear.x = 0
