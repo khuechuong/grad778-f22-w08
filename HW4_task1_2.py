@@ -175,7 +175,7 @@ ap.add_argument("-v", "--video", help="Path to the video file")
 ap.add_argument("-t", "--type", type=str, default="DICT_ARUCO_ORIGINAL", help="Type of ArUCo tag to detect")
 args = vars(ap.parse_args())
 
-video = cv2.VideoCapture(2)
+video = cv2.VideoCapture(0)
 
 # Load the ArUCo dictionary, ArUCo parameters, and detect the markers
 aruco_dict   = cv2.aruco.Dictionary_get(ARUCO_DICT[args["type"]])
@@ -192,7 +192,7 @@ while video.isOpened():
     # Estimate the ArUCO pose:
     pose, a, b, c = pose_estimation(frame, intric_matrix, distortion)
 
-    cv2.imshow("Estimated Pose", pose)
+    # cv2.imshow("Estimated Pose", pose)
 
     # The 'q' button is set as the quitting button
     if cv2.waitKey(1) & 0xFF == ord('q'):
